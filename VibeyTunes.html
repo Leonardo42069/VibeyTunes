@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VibeyTunes — Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">VibeyTunes</div>
+        <div class="search">
+          <input id="searchInput" placeholder="Search artists, songs, albums" />
+        </div>
+        <div class="actions">
+          <button id="shufflePopularBtn" title="Shuffle from top popular">Shuffle Popular</button>
+          <button id="loadTopBtn" title="Load today's top songs">Load Top Songs</button>
+          <button id="uploadBtn" title="Upload full audio files">Upload Full Tracks</button>
+          <input id="freeSearchInput" placeholder="Search free music (e.g. "lofi", "electronic")" style="width:220px;padding:6px;border-radius:12px;border:0;background:#0f0f0f;color:#fff;margin-left:8px" />
+          <label style="margin-left:8px;font-size:13px;color:var(--muted)"><input id="onlyMusicCheck" type="checkbox" checked/> Only music</label>
+          <button id="loadFreeBtn" title="Load free full-length songs from Internet Archive">Load Free Full Tracks</button>
+          <input id="uploadInput" type="file" accept="audio/*" multiple style="display:none" />
+        </div>
+        <div class="profile">Guest</div>
+      </header>
+
+      <main class="main">
+        <aside class="sidebar">
+          <h3>Playlists</h3>
+          <ul id="playlists">
+            <li class="active">Discover</li>
+            <li>Chill</li>
+            <li>Workout</li>
+          </ul>
+        </aside>
+
+        <section class="content">
+          <h2 id="sectionTitle">Discover</h2>
+          <div id="trackGrid" class="grid"></div>
+        </section>
+
+        <aside class="queue">
+          <h4>Up Next</h4>
+          <ol id="queueList"></ol>
+        </aside>
+      </main>
+
+      <div class="player" id="player">
+        <div class="player-left">
+          <img id="playerCover" src="" alt="cover" />
+          <div class="track-info">
+            <div id="playerTitle">Not playing</div>
+            <div id="playerArtist">—</div>
+          </div>
+        </div>
+        <div class="player-center">
+          <div class="controls">
+            <button id="prevBtn">⏮</button>
+            <button id="playBtn">▶</button>
+            <button id="nextBtn">⏭</button>
+          </div>
+          <div class="progress">
+            <span id="currentTime">0:00</span>
+            <input id="seek" type="range" min="0" max="100" value="0" />
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div class="player-right">
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.9" />
+        </div>
+      </div>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
