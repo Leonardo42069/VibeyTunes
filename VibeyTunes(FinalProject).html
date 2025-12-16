@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VibeyTunes — Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">VibeyTunes</div>
+        <div class="search">
+          <input id="searchInput" placeholder="Search artists, songs, albums" />
+        </div>
+        <div class="actions">
+          <button id="searchPersonBtn" title="Find an artist's songs">Find Artist</button>
+          <button id="randomBtn" title="Play random songs">Random Songs</button>
+          <button id="saveBtn" title="Save selected song to your playlist">Save to Playlist</button>
+          <button id="uploadLocalBtn" title="Upload audio files">Upload</button>
+          <input id="uploadInput" type="file" accept="audio/*" multiple style="display:none" />
+        </div>
+        <div class="profile"><span id="playlistCount" class="playlist-count">0</span></div>
+      </header>
+
+      <main class="main">
+        <aside class="sidebar">
+          <h3>Playlists</h3>
+          <div class="add-playlist">
+            <button id="addPlaylistBtn" type="button">Add</button>
+            <input id="newPlaylistInput" placeholder="New playlist name" />
+          </div>
+          <ul id="playlists">
+            <!-- Empty by default; add playlists with the input above -->
+          </ul>
+        </aside>
+
+        <section class="content">
+          <div class="section-header">
+            <h2 id="sectionTitle">Discover</h2>
+            <div class="discover-controls">
+              <button id="loadMoreBtn" title="Load more songs">Load More</button>
+              <button id="refreshBtn" title="Refresh Discover">Refresh</button>
+            </div>
+          </div>
+          <div id="trackGrid" class="grid"></div>
+          <div id="discoverEnd" class="discover-end">Scroll to load more</div>
+        </section>
+
+        <aside class="queue">
+          <h4>Up Next</h4>
+          <ol id="queueList"></ol>
+        </aside>
+      </main>
+
+      <div class="player" id="player">
+        <div class="player-left">
+          <img id="playerCover" src="" alt="cover" />
+          <div class="track-info">
+            <div id="playerTitle" aria-live="polite">Not playing</div>
+            <div id="playerArtist" aria-live="polite">—</div>
+          </div>
+        </div>
+        <div class="player-center">
+          <div class="controls">
+            <button id="prevBtn">⏮</button>
+            <button id="playBtn">▶</button>
+            <button id="nextBtn">⏭</button>
+          </div>
+          <div class="progress">
+            <span id="currentTime">0:00</span>
+            <input id="seek" type="range" min="0" max="100" value="0" />
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div class="player-right">
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.9" />
+        </div>
+      </div>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
